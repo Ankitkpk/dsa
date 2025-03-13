@@ -106,3 +106,57 @@ function minSubrray(array9,target){
 }
 let result15=minSubrray(array9,target);
 console.log(result15);
+
+let array10=[4,1,2,1,2];
+
+function SingleNumber(array10){
+    let result=0;
+    for(let num of array10){
+        result^=num;
+    }
+    
+    return result;
+}
+let result20=SingleNumber(array10);
+console.log(result20);
+
+//remove duplicate from sorted array//
+let array12 = [0,0,1,1,1,2,2,3,3,4];
+//Output: 5, nums = [0,1,2,3,4,_,_,_,_,_]
+  // [0,1,1,1,2,2,3,3,4];
+function removeDuplicate(array12){
+for(let i=1;i<array12.length;i++){
+    if(array12[i] === array12[i-1]){
+        array12.splice(i, 1);
+        i--;
+     console.log(i);
+    }
+}
+return array12;
+}
+
+let result22=removeDuplicate(array12);
+console.log(result22);
+
+//Input: nums = [1,1,1,2,2,3], k = 2
+//Output: [1,2]
+
+//most k frequency number leetcode //
+
+let array16 = [3,2,2,3];
+let val = 3;
+
+function RemoveVal(array16,val){
+    let left=0;
+    for(let right=0;right<array16.length;right++){
+        if(array16[right] !== val){
+         array16[left]= array16[right];
+         left++;
+        }
+       
+    }
+return left;
+}
+
+let result10=RemoveVal(array16,val);
+console.log(result10);
