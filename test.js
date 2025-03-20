@@ -125,3 +125,27 @@ return [...revarray.slice(-k),...array7.splice(0,n-k)]
 let result12=rotateArray(array7,k);
 console.log(result12);
 
+
+let intervals = [[1,3],[8,10],[2,6],[15,18]]
+//sorted =[[1,3],[2,6],[8,10],[15,18]];//
+function MergeIntevals(intervals){
+    if(intervals.length == 0){
+        return false;
+    }
+    intervals.sort((a,b)=>a[0]-b[0]);
+ let merge=[intervals[0]];
+ for(let i=1;i<intervals.length;i++){
+   let prev=merge[merge.length -1];
+   let cur=intervals[i];
+   if(cur[0] <= prev[1]){
+    prev[1] = Math.max(prev[1], cur[1]);
+   }else{
+    //no overlapping merge at end time//
+    merge.push(cur)
+   }
+ }
+return merge;
+}
+
+let result19=MergeIntevals(intervals);
+console.log(result19);

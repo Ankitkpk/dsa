@@ -28,3 +28,20 @@ db.getCollection('books').insertMany(
   ]
   
 );
+db.sales.aggregate([
+  {
+    $group: {
+      _id:null,
+      totalsales: {
+        
+        $sum:"sales"
+      }
+    },
+    {
+      $project:{
+        _id:0,
+        totalsales:1
+      }
+    }
+  }
+])

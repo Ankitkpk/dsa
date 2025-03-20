@@ -143,6 +143,8 @@ console.log(result22);
 
 //most k frequency number leetcode //
 
+//remove element from arrays//
+ 
 let array16 = [3,2,2,3];
 let val = 3;
 

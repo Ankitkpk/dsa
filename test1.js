@@ -279,3 +279,41 @@ const matrix = [
 
 let result1= spiralOder(matrix );
 console.log(result1);
+
+
+let intervals = [[1,3],[8,10],[2,6],[15,18]]
+//Output: [[1,6],[8,10],[15,18]]
+
+function mergeIntervals(intervals) {
+    if (intervals.length <= 1) return intervals;
+
+    // Step 1: Sort intervals by the start time
+    intervals.sort((a, b) => a[0] - b[0]);
+
+    const merged = [intervals[0]];
+
+    for (let i = 1; i < intervals.length; i++) {
+        const prev = merged[merged.length - 1];
+        const curr = intervals[i];
+
+        // Step 2: Check for overlap
+        console.log(`the prev index ${prev[1]}`);
+        console.log(` the current index ${curr[0]}`);
+        if (curr[0] <= prev[1]) {
+            // Merge the intervals by updating the end time
+            prev[1] = Math.max(prev[1], curr[1]);
+           
+        } else {
+            // No overlap, add the current interval to the result
+            merged.push(curr);
+        }
+    }
+
+    return merged;
+}
+
+
+
+
+let result2=mergeIntervals(intervals);
+console.log(result2);
