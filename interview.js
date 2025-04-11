@@ -82,7 +82,7 @@ console.log(result10);
 */
 function longestCommonSubsequence(text1,text2,m=text1.length,n=text2.length){
     if(m ===0 || n===0){
-        return false;
+        return  false;
     }
     //check for last chareacter//
     if(text1[m-1] === text2[n-1]){
@@ -185,3 +185,113 @@ function longestPalindromicSubsequence(s) {
 // Example Usage:
 console.log("Result for 'bbbab':", longestPalindromicSubsequence("bbbab")); // Output: 4 (LPS: "bbbb")
 console.log("Result for 'cbbd':", longestPalindromicSubsequence("cbbd"));  // Output: 2 (LPS: "bb")
+
+//In prototypal inheritance, an object can inherit properties and methods from another object.
+
+//This is achieved via the prototype chain, where one object serves as a prototype for another.
+
+//In JavaScript, this is done using Object.create(), __proto__, or Object.setPrototypeOf()
+
+//In classical inheritance, properties and methods are inherited from a class rather than directly from an object.
+
+//In JavaScript (with ES6+), this is done using the class and extends keywords.
+
+//However, classical inheritance in JavaScript is still based on prototypal inheritance under the hood.
+
+//It does allow inheritance, but through class-based structure rather than directly linking objects.
+
+let s = "bbbab"
+//Output: 4
+
+
+
+let str = "cb34n";
+
+Output: ""
+
+function ClearDigits(str) {
+  let stack=[];
+  for(let char of str){
+    if(/\d/.test(char)){
+     //to check if it is a didgit//
+     //to check if any wlwmwnt already exist in stack//
+     if(stack.length){
+        stack.pop();
+     } 
+      
+    }else{
+        stack.push(char)
+    }
+  }
+  return `value of string after digits clear is ${stack.join("")}`;
+  }
+let result20=ClearDigits(str);
+console.log(result20);
+
+
+console.log("start");
+
+setTimeout(()=>{
+    console.log("Macrotask:setTimeout")
+},0)
+
+Promise.resolve().then(() =>{
+    console.log("Macrotask:promise 1");
+}).then(()=>{
+    console.log("Micrtask:promise 2");
+});
+console.log("End");
+
+
+let nums = [3,2,1,5,6,4];
+let k = 2;
+//Output: 5 without sorting//
+let nums9 = [2,7,11,15];
+let  target = 9;
+//Output: [0,1]
+
+function TwoSum(nums9,target){
+let requiredNum=0;
+let map=new Map();
+for(let i=0;i<nums.length;i++){
+    requiredNum=target-nums9[i]
+    if(map.has(requiredNum)){
+    return  map.get(requiredNum , i);
+    }
+    map.set(nums9[i], i);
+}
+
+}
+
+let result=TwoSum(nums9,target);
+
+console.log(result);
+let nums24 = [-1,0,1,2,-1,-4];
+//Output: [[-1,-1,2],[-1,0,1]]
+
+function ThreeSum(nums24){
+let result=[];
+let left=0;
+let right=nums24.length;
+while(left < right){
+    for(let i=1;i<nums24.length-2;i++){
+        let sum=nums24[left] + nums24[right] + nums24[i];
+        if(sum == 0){
+            result.push(nums24[left]);
+            result.push(nums24[right]);
+            result.push(nums24[i]);
+            left++;
+            right--;
+        }else if( sum < 0){
+        left++;
+        }else{
+         right--;
+        }
+       }
+}
+
+return result;
+}
+
+let result78=ThreeSum(nums24);
+console.log(result78);

@@ -317,3 +317,28 @@ function mergeIntervals(intervals) {
 
 let result2=mergeIntervals(intervals);
 console.log(result2);
+
+
+//kadane algorithim//
+let num6 = [-2,1,-3,4,-1,2,1,-5,4];
+//output : 6;
+function maxSubarraySum(num6){
+    let maxSum=num6[0];
+    let sum=0;
+    for(let i=0;i<num6.length;i++){
+         sum+=num6[i];
+         if(sum > maxSum){
+            maxSum=sum;
+        }
+       if(sum < 0){
+         sum=0;
+       }
+        }
+       
+       return `the maximun subbray sum ${maxSum}`;
+    }
+   
+
+
+let result55=maxSubarraySum(num6);
+console.log(result55);

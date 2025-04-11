@@ -149,3 +149,67 @@ return merge;
 
 let result19=MergeIntevals(intervals);
 console.log(result19);
+
+let nums9 = [2,7,11,15];
+let  target = 9;
+//Output: [0,1]
+
+function TwoSum(nums9,target){
+
+let map=new Map();
+for(let i=0;i<nums9.length;i++){
+   let requiredNum=target - nums9[i]
+   if(map.has(requiredNum)){
+    return [map.get(requiredNum), i];
+   }
+   map.set(nums9[i], i);
+   console.log(map);
+}
+
+}
+
+let result79=TwoSum(nums9,target);
+
+console.log(result79);
+
+let nums24 = [-1,0,1,2,-1,-4];
+
+function ThreeSum(nums24) {
+    let result = [];
+
+    nums24.sort((a, b) => b - a); // Descending sort as per your version
+
+    for (let i = 0; i < nums24.length - 2; i++) {
+        if (i > 0 && nums24[i] === nums24[i - 1]) continue; // Skip duplicate values for i
+
+        let left = i + 1;
+        let right = nums24.length - 1;
+
+        while (left < right) {
+            let sum = nums24[i] + nums24[left] + nums24[right];
+            console.log(`Checking: ${nums24[i]}, ${nums24[left]}, ${nums24[right]} => sum: ${sum}`);
+
+            if (sum === 0) {
+                result.push([nums24[i], nums24[left], nums24[right]]);
+
+                // Move pointers and skip duplicates
+                left++;
+                right--;
+
+                while (left < right && nums24[left] === nums24[left - 1]) left++;
+                while (left < right && nums24[right] === nums24[right + 1]) right--;
+
+            } else if (sum < 0) {
+                right--; // Since sorted descending, decrease right to lower the sum
+            } else {
+                left++; // Increase left to lower the sum
+            }
+        }
+    }
+
+    return result;
+}
+
+    
+    let result78=ThreeSum(nums24);
+    console.log(result78);
